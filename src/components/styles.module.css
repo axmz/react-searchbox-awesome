@@ -1,0 +1,79 @@
+.input{
+  width: 100%;
+  background-color: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: initial;
+
+  outline: none;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  padding: 25px 15px; /*var*/
+  border: none;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.2); 
+}
+
+.input:focus {
+    background-color: pink /*var*/
+}
+
+.list {
+  background-color: inherit;
+  font-size: inherit;
+  color: inherit;
+  margin: 0; /* To remove default bottom margin */
+  padding: 0; /* To remove default left padding */
+  list-style-type: none;
+  list-style: none
+}
+
+.listItem{
+  background-color: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: initial;
+
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 20px 15px; /*var*/
+  list-style-type: none;
+}
+
+
+.listItem:focus {
+  background-color: pink /*var*/;
+  outline: none;
+}
+
+.inputSpan {
+  right: 15px; /* var */
+  position: absolute;
+  top: 50%;
+  transform: translate(0px, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputSpanInside {
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: .5em;
+  margin: 4px ;
+}
+
+.listItemSpan {
+  right: 15px; /* var */
+  position: absolute;
+  top: 50%;
+  transform: translate(0px, -50%);
+
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: .5em;
+}
