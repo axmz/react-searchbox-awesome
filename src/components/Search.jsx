@@ -3,7 +3,6 @@ import "normalize.css";
 import List from "./List";
 import ListItem from "./ListItem";
 import Input from "./Input";
-import HotkeysWrapper from "./HotkeysWrapper";
 import Hotkeys from "./Hotkeys";
 
 const defaultStyle = {
@@ -107,16 +106,20 @@ const Search = ({
       tab(e, -1);
     }
     if (keyName === "esc") {
-      CleanupInput()
-      onEsc(e)
+      if (e.target.closest(".ReactSearchAwesome")) {
+        CleanupInput()
+        onEsc(e)
+      }
     }
     if (keyName === "/") {
       e.preventDefault()
       inputRef.current.focus();
     }
     if (keyName === "enter") {
-      CleanupInput()
-      onEnter(e)
+      if (e.target.closest(".ReactSearchAwesome") && e.target.nodeName == "LI") {
+        CleanupInput()
+        onEnter(e)
+      }
     }
   };
 
