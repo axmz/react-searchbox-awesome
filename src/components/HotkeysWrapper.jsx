@@ -2,7 +2,6 @@ import React from "react";
 import Hotkeys from "react-hot-keys";
 
 const HotkeysWrapper = ({ children, onKeyDown }) => {
-  console.log('HotkeysWrapper')
   return (
     <Hotkeys
       filter={e => {

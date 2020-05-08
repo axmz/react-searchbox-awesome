@@ -9,13 +9,9 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  padding: 25px 15px; /*var*/
+  padding: 25px 15px; 
+  /*var*/
   border: none;
-  box-shadow: 0 0 2px 2px rgba(0,0,0,0.2); 
-}
-
-.input:focus {
-    background-color: pink /*var*/
 }
 
 .list {
@@ -24,6 +20,7 @@
   color: inherit;
   margin: 0; /* To remove default bottom margin */
   padding: 0; /* To remove default left padding */
+  outline: none;
   list-style-type: none;
   list-style: none
 }
@@ -34,17 +31,13 @@
   color: inherit;
   line-height: initial;
 
+  outline: none;
   box-sizing: border-box;
   position: relative;
   margin: 0;
-  padding: 20px 15px; /*var*/
+  padding: 20px 15px; 
+  /*var*/
   list-style-type: none;
-}
-
-
-.listItem:focus {
-  background-color: pink /*var*/;
-  outline: none;
 }
 
 .inputSpan {

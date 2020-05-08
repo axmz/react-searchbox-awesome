@@ -5,69 +5,64 @@ import ListItem from "./ListItem";
 import Input from "./Input";
 import HotkeysWrapper from "./HotkeysWrapper";
 
-const Search = ({
-  data,
-  mapping = { title: "title" },
-  style,
-  color,
-  placeholder,
-  onEnter,
-  onInput,
-}) => {
-  console.log("Search")
-  const ref = useRef();
-  const [app, setApp] = useState()
-  const [input, setInput] = useState("")
-  // const [data, filter] = useState([]);
-  const [tabIndex, setTabIndex] = useState(1);
+const defaultStyle = {
+  width: "calc(90% + (100vw - 100%))",
+  color: "#333",               // children inherit
+  backgroundColor: "white",    // children inherit
+  fontSize: "2.5rem",          // children inherit
+  position: "absolute",
+  top: "0rem",
 
-  // identifies the searchbar in the document for further use
-  useEffect(() => {
-    console.log('setApp')
-    setApp(document.querySelector(".ReactSearchAwesome"))
-  }, [app])
+  // rounded corners example. 
+  boxShadow: "0 0 4px 4px rgba(0,0,0,0.2)",
+  border: "none",
+  overflow: "hidden"
+}
+
+const Search = ({
+  data = [],
+  mapping = { title: "title" },
+  style = defaultStyle,
+  color = "pink",
+  placeholder = "Search...",
+  span = false,
+  onEnter = (() => { }),
+  onInput = (() => { }),
+  onClick = (() => { }),
+  onEsc = (() => { }),
+}) => {
+  const inputRef = useRef();
+  const appRef = useRef();
+  const [tabIndex, setTabIndex] = useState(1);
+  const [inputColor, setInputColor] = useState({})
+  var inputEvent = new Event('input'); // used to imitate native input event that doesn't trigger when input.value=""
 
   // input EventListener
   useEffect(() => {
-    const inputEl = app.querySelector("input")
-    if (inputEl) {
-      inputEl.addEventListener("input", onInput)
-    }
-    return () => inputEl.removeEventListener("input", onInput)
-  }, [app])
+    inputRef.current.addEventListener("input", onInput)
+    return () => inputRef.current.removeEventListener("input", onInput)
+  }, [onInput])
+
   // focuses on input field
   useEffect(() => {
-    console.log("focus on ref current")
-    ref.current.focus();
-  }, [ref]);
+    inputRef.current.focus();
+  }, []);
 
   // focus handler for addEventListener
-  const focusHandler = React.useCallback(e => {
+  const focusHandler = e => {
     setTabIndex(e.target.tabIndex);
-  }, []);
+  };
 
   // attaches 'focus' eventlistener to the entire component
   useEffect(() => {
-    console.log('focus effect')
-    if (app) {
-      app.addEventListener("focusin", focusHandler);
-      return () => {
-        app.removeEventListener("focusin", focusHandler);
-      };
-    }
-  }, [app, focusHandler]);
-
-  // cleanup the input
-  const clearInput = () => {
-    console.log("clearInput")
-    setInput("")
-    ref.current.value = ""
-    ref.current.focus();
-  }
+    appRef.current.addEventListener("focusin", focusHandler);
+    return () => {
+      appRef.current.removeEventListener("focusin", focusHandler);
+    };
+  }, [focusHandler]);
 
   // moves focus to prev or next tabindex
   function tab(e, step) {
-    console.log('tab', tabIndex)
     e.preventDefault();
     let nextTabIndex = tabIndex + step;
     if (nextTabIndex > data.length + 1) {
@@ -81,13 +76,26 @@ const Search = ({
       }
       nextTabIndex = data.length + 1;
     }
-    const nextElement = document.querySelector(`[tabIndex="${nextTabIndex}"]`);
+    const nextElement = appRef.current.querySelector(`[tabIndex="${nextTabIndex}"]`);
     nextElement.focus();
   };
 
+  // Cleanup input
+  function CleanupInput() {
+    inputRef.current.value = ""
+    inputRef.current.dispatchEvent(inputEvent)
+    inputRef.current.focus();
+  }
+
+  // Click handler
+
+  const clickHandler = (e) => {
+    onClick(e)
+    CleanupInput()
+  }
+
   // Hotkeys onKeyDown handler
   const onKeyDown = (keyName, e, handle) => {
-    console.log('onKeyDown')
     if (keyName === "ctrl+j") {
       tab(e, 1);
     }
@@ -95,36 +103,53 @@ const Search = ({
       tab(e, -1);
     }
     if (keyName === "esc") {
-      clearInput()
+      CleanupInput()
+      onEsc(e)
     }
     if (keyName === "/") {
       e.preventDefault()
-      ref.current.focus();
+      inputRef.current.focus();
     }
-    // if (keyName === "enter") {
-    //   e.preventDefault()
-    //   onEnter(e)
-    //   clearInput()
-    // }
+    if (keyName === "enter") {
+      CleanupInput()
+      onEnter(e)
+    }
   };
 
   return (
-    <div style={style} className="ReactSearchAwesome">
-      <HotkeysWrapper onKeyDown={onKeyDown}>
-        <Input ref={ref} onInput={e => setInput(e.target.value)} placeholder={placeholder} />
+    <div
+      ref={appRef}
+      style={{ ...style }}
+      className="ReactSearchAwesome"
+    >
+      <HotkeysWrapper
+        onKeyDown={onKeyDown}
+      >
+        <Input
+          ref={inputRef}
+          onInput={onInput}
+          placeholder={placeholder}
+          style={{ ...inputColor}}
+          span={span}
+          onFocus={() => setInputColor({backgroundColor: color})}
+          onBlur={() => setInputColor({})}
+        />
         {data.length > 0
           ? (<List>
             {data.map((item, i) => (
               <ListItem
+                span={span}
                 tabIndex={i + 2}
                 key={i}
                 searchItem={item}
                 title={item[mapping.title]}
-                onEnter={onEnter}
+                color={color}
+                onClick={(e) => clickHandler(e)}
               />
             ))}
           </List>)
-          : (<></>)}
+          : (<></>)
+        }
       </HotkeysWrapper>
     </div>
   );
