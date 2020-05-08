@@ -26,4 +26,5 @@ accessibility
 <!-- onEsc   -->
 presentation: color, rounded, horisontal  
 paddin prop  
+fix onenter in the input error  
 
