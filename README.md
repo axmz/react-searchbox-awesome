@@ -1,8 +1,8 @@
-<img src="./src/assets/rainbow.gif"></img>
-
 # About  
 
-Coolest searchbar for React.js!
+The coolest searchbar for React.js!
+
+<img src="./src/assets/rainbow.gif"></img>
 
 # How it can look like  
 <div>

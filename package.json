@@ -1,7 +1,12 @@
 {
   "name": "react-searchbar-awesome",
   "version": "1.0.0",
-  "description": "",
+  "description": "The coolest searchbar for React.js",
+  "homepage": "https://github.com/axmz/react-searchbar-awesome",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axmz/react-searchbar-awesome"
+  },
   "main": "./build/index.js",
   "dependencies": {
     "normalize.css": "^8.0.1"
@@ -25,7 +30,7 @@
   "scripts": {
     "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["react", "searchbar", "awesome", "filter", "search", "component"],
+  "author": "axmz",
   "license": "ISC"
 }
