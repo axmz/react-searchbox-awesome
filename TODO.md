@@ -6,8 +6,10 @@ fix performance!!!
 put on react.parts or smth  
 <!-- add focus on "/"   -->
 / is not filtered in the input. fix?  
-add site to readme  
-add site to example  
+<!-- add site to readme   -->
+add github site to example  
+add variants to example  
+add documentation  
 resize transition animation?  
 <!-- filter data from outside expose handlers   -->
 <!-- add esc   -->
