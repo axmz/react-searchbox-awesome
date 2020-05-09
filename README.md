@@ -1,6 +1,6 @@
 # About  
 
-The coolest searchbar for React.js!
+The coolest searchbar for React.js! [Wow! Try](https://axmz.github.io/react-searchbar-awesome-page/)
 
 <img src="./src/assets/rainbow.gif"></img>
 
