@@ -31,7 +31,6 @@ const Search = ({
   onClick = (() => { }),
   onEsc = (() => { }),
 }) => {
-  console.log('Search')
   const inputRef = useRef();
   const appRef = useRef();
   const [tabIndex, setTabIndex] = useState(1);
@@ -106,7 +105,7 @@ const Search = ({
       tab(e, -1);
     }
     if (keyName === "esc") {
-      if (e.target.closest(".ReactSearchAwesome")) {
+      if (e.target.closest(".ReactSearchbarAwesome")) {
         CleanupInput()
         onEsc(e)
       }
@@ -116,7 +115,7 @@ const Search = ({
       inputRef.current.focus();
     }
     if (keyName === "enter") {
-      if (e.target.closest(".ReactSearchAwesome") && e.target.nodeName == "LI") {
+      if (e.target.closest(".ReactSearchbarAwesome") && e.target.nodeName == "LI") {
         CleanupInput()
         onEnter(e)
       }
@@ -127,7 +126,7 @@ const Search = ({
     <div
       ref={appRef}
       style={{ ...style }}
-      className="ReactSearchAwesome"
+      className="ReactSearchbarAwesome"
     >
       <Hotkeys
         onKeyDown={onKeyDown}
