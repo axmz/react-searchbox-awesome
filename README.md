@@ -11,12 +11,7 @@ npm i react-searchbar-awesome
 ```
 
 # Use
-
-<iframe
-     src="https://codesandbox.io/embed/nameless-water-n88ve?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="nameless-water-n88ve"
-   ></iframe>
+[Try in the sandbox](https://codesandbox.io/embed/nameless-water-n88ve?fontsize=14&hidenavigation=1&theme=dark&view=preview)
 
 # How it can look like
 
