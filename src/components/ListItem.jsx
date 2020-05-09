@@ -5,10 +5,10 @@ import ListItemSpan from "./ListItemSpan"
 const ListItem = ({
   tabIndex,
   title,
-  span,
+  shortcuts,
   searchItem,
   clickHandler,
-  color,
+  activeStyle,
   ...otherProps
 }) => {
   const dataAttributes = { "data-searchitem": JSON.stringify(searchItem) }
@@ -25,15 +25,15 @@ const ListItem = ({
         paddingRight: "6rem",
         ...liColor
       }}
-      onFocus={() => setLiColor({ backgroundColor: color })}
+      onFocus={() => setLiColor({ ...activeStyle })}
       onBlur={() => setLiColor({})}
-      onMouseEnter={() => setLiColor({ backgroundColor: color })}
+      onMouseMoveCapture={() => setLiColor({ ...activeStyle })}
       onMouseLeave={() => setLiColor({})}
       {...dataAttributes}
       {...otherProps}
     >
       {title}
-      {span ? <ListItemSpan /> : <></>}
+      {shortcuts ? <ListItemSpan /> : <></>}
     </li>
   );
 };

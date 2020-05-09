@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 const Hotkeys = ({ children, onKeyDown }) => {
-  const ref = useRef()
   const keyDownHandler = (e) => {
       let keyName = ""
       switch (true) {

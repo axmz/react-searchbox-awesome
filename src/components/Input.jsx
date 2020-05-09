@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 
 const { input } = styles
 
-const Input = forwardRef(({ placeholder, span, ...otherProps }, ref) => {
+const Input = forwardRef(({ placeholder, shortcuts, ...otherProps }, ref) => {
   return (
     <div style={{ position: "relative" }}>
       <input
@@ -16,7 +16,7 @@ const Input = forwardRef(({ placeholder, span, ...otherProps }, ref) => {
         className={input}
       />
       {
-        span ? <InputSpan /> : <></>
+        shortcuts ? <InputSpan /> : <></>
       }
     </div>
   );

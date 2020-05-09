@@ -23,9 +23,9 @@ const Search = ({
   data = [],
   mapping = { title: "title" },
   style = defaultStyle,
-  color = "pink",
+  activeStyle = { backgroundColor: "pink" },
   placeholder = "Search...",
-  span = false,
+  shortcuts: shortcuts = false,
   onEnter = (() => { }),
   onInput = (() => { }),
   onClick = (() => { }),
@@ -63,7 +63,7 @@ const Search = ({
   }, [focusHandler]);
 
   // moves focus to prev or next tabindex
-  function tab (e, step) {
+  function tab(e, step) {
     e.preventDefault();
     let nextTabIndex = tabIndex + step;
     if (nextTabIndex > data.length + 1) {
@@ -96,7 +96,7 @@ const Search = ({
   }
 
   // Hotkeys onKeyDown handler
-  const onKeyDown = (keyName, e, handle) => {
+  const onKeyDown = (keyName, e) => {
     if (keyName === "ctrl+j") {
       e.preventDefault();
       tab(e, 1);
@@ -129,34 +129,34 @@ const Search = ({
       style={{ ...style }}
       className="ReactSearchAwesome"
     >
-      <Hotkeys 
+      <Hotkeys
         onKeyDown={onKeyDown}
       >
-          <Input
-            ref={inputRef}
-            onInput={onInput}
-            placeholder={placeholder}
-            style={{ ...inputColor }}
-            span={span}
-            onFocus={() => setInputColor({ backgroundColor: color })}
-            onBlur={() => setInputColor({})}
-          />
-          {data.length > 0
-            ? (<List>
-              {data.map((item, i) => (
-                <ListItem
-                  span={span}
-                  tabIndex={i + 2}
-                  key={i}
-                  searchItem={item}
-                  title={item[mapping.title]}
-                  color={color}
-                  onClick={(e) => clickHandler(e)}
-                />
-              ))}
-            </List>)
-            : (<></>)
-          }
+        <Input
+          ref={inputRef}
+          onInput={onInput}
+          placeholder={placeholder}
+          style={{ ...inputColor }}
+          shortcuts={shortcuts}
+          onFocus={() => setInputColor({...activeStyle})}
+          onBlur={() => setInputColor({})}
+        />
+        {data.length > 0
+          ? (<List>
+            {data.map((item, i) => (
+              <ListItem
+                shortcuts={shortcuts}
+                tabIndex={i + 2}
+                key={i}
+                searchItem={item}
+                title={item[mapping.title]}
+                activeStyle={activeStyle}
+                onClick={(e) => clickHandler(e)}
+              />
+            ))}
+          </List>)
+          : (<></>)
+        }
       </Hotkeys>
     </div>
   );
