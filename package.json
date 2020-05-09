@@ -1,11 +1,11 @@
 {
-  "name": "react-searchbar-awesome",
+  "name": "react-searchbox-awesome",
   "version": "1.0.2",
-  "description": "The coolest searchbar for React.js",
-  "homepage": "https://github.com/axmz/react-searchbar-awesome",
+  "description": "The coolest searchbox for React.js",
+  "homepage": "https://github.com/axmz/react-searchbox-awesome",
   "repository": {
     "type": "git",
-    "url": "https://github.com/axmz/react-searchbar-awesome"
+    "url": "https://github.com/axmz/react-searchbox-awesome"
   },
   "main": "./build/index.js",
   "dependencies": {
@@ -30,7 +30,7 @@
   "scripts": {
     "build": "webpack"
   },
-  "keywords": ["react", "searchbar", "awesome", "filter", "search", "component"],
+  "keywords": ["react", "searchbox", "awesome", "filter", "search", "component"],
   "author": "axmz",
   "license": "ISC"
 }

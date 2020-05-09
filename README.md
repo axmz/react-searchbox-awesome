@@ -1,13 +1,13 @@
 # About
 
-The coolest searchbar for React.js! [Wow! Try](https://axmz.github.io/react-searchbar-awesome-page/)
+The coolest searchbox for React.js! [Wow! Try](https://axmz.github.io/react-searchbox-awesome-page/)
 
 <img src="./src/assets/rainbow.gif"></img>
 
 # Install
 
 ```
-npm i react-searchbar-awesome
+npm i react-searchbox-awesome
 ```
 
 # Use
@@ -16,7 +16,7 @@ npm i react-searchbar-awesome
 # How it can look like
 
 <div>
-  <img src="./src/assets/searchbar-transparent.png"></img>
-  <img src="./src/assets/searchbar-rainbow.png"></img>
-  <img src="./src/assets/searchbar-pink.png"></img>
+  <img src="./src/assets/searchbox-transparent.png"></img>
+  <img src="./src/assets/searchbox-rainbow.png"></img>
+  <img src="./src/assets/searchbox-pink.png"></img>
 </div>

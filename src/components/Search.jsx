@@ -105,7 +105,7 @@ const Search = ({
       tab(e, -1);
     }
     if (keyName === "esc") {
-      if (e.target.closest(".ReactSearchbarAwesome")) {
+      if (e.target.closest(".ReactSearchboxAwesome")) {
         CleanupInput()
         onEsc(e)
       }
@@ -115,7 +115,7 @@ const Search = ({
       inputRef.current.focus();
     }
     if (keyName === "enter") {
-      if (e.target.closest(".ReactSearchbarAwesome") && e.target.nodeName == "LI") {
+      if (e.target.closest(".ReactSearchboxAwesome") && e.target.nodeName == "LI") {
         CleanupInput()
         onEnter(e)
       }
@@ -126,7 +126,7 @@ const Search = ({
     <div
       ref={appRef}
       style={{ ...style }}
-      className="ReactSearchbarAwesome"
+      className="ReactSearchboxAwesome"
     >
       <Hotkeys
         onKeyDown={onKeyDown}
