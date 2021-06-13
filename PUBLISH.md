@@ -1,0 +1,8 @@
+- npm run build
+- update version
+- npm login
+- npm publish
+- update version in sandbox
+- update in git pages
+- update readme
+- git push

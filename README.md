@@ -11,7 +11,7 @@ npm i react-searchbox-awesome
 ```
 
 # Use
-[Try in the sandbox](https://codesandbox.io/embed/serene-star-ffwq2?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+[Try in the sandbox](https://codesandbox.io/embed/new-voice-x20w3?fontsize=14&hidenavigation=1&theme=dark&view=preview)
 
 # How it can look like
 
