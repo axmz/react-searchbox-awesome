@@ -88,7 +88,6 @@ const Search = ({
   }
 
   // Click handler
-
   const clickHandler = (e) => {
     onClick(e)
     CleanupInput()
